@@ -9,7 +9,8 @@ module.exports = function (name) {
 };
 
 module.exports.prototype.ranking = function () {
-  return this.numReviews * this.rating;
+  // Rating matters, but don't let a well-reviewed, crappy restaurant overtake ratings
+  return (this.rating * 10) * (this.numReviews / 100);
 };
 
 module.exports.prototype.fetch = function (cb) {
@@ -26,17 +27,12 @@ module.exports.prototype.fetch = function (cb) {
       var $el = $(el);
 
       $el.attr('href', 'http://www.yelp.com' + $el.attr('href'));
+      $el.attr('target', '_blank');
+      $el.attr('rel', 'nofollow');
     });
-
-    // console.log('Before: ', $result.find('.search-result-title').html());
-    // console.log('Replace with: ', $result.find('.search-result-title').find('a.biz-name').outerHTML());
-    // console.log('Or: ',  $result.find('a.biz-name').html())
-    // console.log('Or2: ',  $result.find('span.indexed-biz-name').html())
 
     $result.find('.search-result-title').append($result.find('a.biz-name'));
     $result.find('.search-result-title').find('span.indexed-biz-name').remove();
-
-    // console.log(this.name + ' - ' + $result.find('a.biz-name').text());
 
     this.html       = '<div class="search-result">' + $result.html() + '</div>';
     this.rating     = parseFloat($result.find('i.star-img').attr('title'));

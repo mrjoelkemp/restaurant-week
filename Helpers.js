@@ -37,13 +37,7 @@ module.exports.generateResultsPage = function () {
     });
 
     yelpObjects.sort(function (obj1, obj2) {
-      // If rating matches, then sort by numReviews
-      if (obj1.rating === obj2.rating) {
-        return obj2.numReviews - obj1.numReviews;
-      }
-
-      // Otherwise, sort by rating
-      return obj2.rating - obj1.rating;
+      return obj2.ranking() - obj1.ranking();
     });
 
     // Populate the .search-results el with the html from the yelp objects
@@ -63,12 +57,11 @@ module.exports.getRestaurantYelpObjects = function (cb) {
       yelpObjects = [],
 
       // Used for limiting results set (mostly for debug)
-      // howMany = names.length,
-      howMany = 15,
+      howMany = names.length,
+      // howMany = 55,
 
       // Resolve with the gathered objects after all of the
       // objects have fetched their data from Yelp
-      // whenAllFetched = after(names.length, function () {
       whenAllFetched = after(howMany, function () {
         cb && cb(yelpObjects);
       });
