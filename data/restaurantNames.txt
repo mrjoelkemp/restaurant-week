@@ -56,7 +56,7 @@ Calle Ocho
 Capital Grille - NY – Chrysler Center
 Capital Grille - NY – Time Life Building
 Capital Grille - NY- Wall Street
-Caravaggio New York
+Caravaggio
 Casa Mono
 Casa Nonna - Midtown
 The Cecil
@@ -94,14 +94,14 @@ Empellon Cocina
 Empellon Taqueria
 EN Japanese Brasserie
 Esca
-Estiatorio Milos - NY
+Estiatorio Milos
 Etcetera Etcetera
-Fig & Olive - Fifth Avenue
+Fig & Olive - midtown
 Fig & Olive - Meatpacking
 Fig & Olive - Uptown
 Fish Tag
-Fonda - East Village
-Frankie & Johnnie's Steakhouse - Manhattan
+Fonda
+Frankie & Johnnie's Steakhouse
 Fulton
 Gabriel's Bar & Restaurant
 The General
@@ -114,8 +114,8 @@ Grotta Azzurra
 Hakkasan New York
 Harlow
 The Harrison
-Haru Sushi - Gramercy Park
-Hill Country - Flatiron
+Haru Sushi
+Hill Country
 Hospoda
 I Trulli
 Il Cantinori
@@ -132,7 +132,7 @@ Ken & Cook
 Kin Shop
 Kittichai
 Kristalbelli
-KTCHN (KITCHEN)
+KTCHN
 Kutsher's Tribeca
 La Cenita
 Lafayette
@@ -148,7 +148,7 @@ The Leopard at des Artistes
 Les Halles Downtown
 Les Halles Park Avenue
 Lexington Brass
-The Library at the Public - Joe's Pub
+The Library at the Public
 Lido
 Lincoln Ristorante
 Loi
@@ -162,7 +162,7 @@ MarkJoseph Steakhouse
 The Marrow
 Marseille
 Mas (la grillade)
-Match 65 Brasserie (formerly Paris Match)
+Match 65 Brasserie
 Maya - New York
 Maze - By Gordon Ramsay
 McCormick & Schmick's Seafood - New York
@@ -172,7 +172,7 @@ Melibea
 Mercer Kitchen
 Mezzogiorno
 Michael Jordan's The Steak House N.Y.C.
-Michael's
+Michael's food midtown
 MINT
 Molyvos
 Monkey Bar
@@ -246,16 +246,16 @@ Spice Market
 Stella 34 Trattoria
 STK - NYC - Midtown
 Strand Bistro at The Strand Hotel
-SUSHISAMBA NYC Gramercy
-SUSHISAMBA NYC West Village
+SUSHISAMBA - Gramercy
+SUSHISAMBA - West Village
 Taboon
 Tamarind - Tribeca
 Tao Uptown
 Taste Restaurant & Wine Bar
-T-BAR Steak & Lounge (Upper East Side)
+TBar Steak & Lounge
 Telepan
 Thalia
-Todd English at The Plaza Food Hall
+Todd English Food Hall
 Toloache-Midtown
 Trattoria Il Mulino
 Tribeca Grill
