@@ -37,7 +37,7 @@ module.exports.prototype.fetch = function (cb) {
     $result.find('.search-result-title').append($result.find('a.biz-name'));
     $result.find('.search-result-title').find('span.indexed-biz-name').remove();
 
-    this.html       = '<div class="search-result">' + $result.html() + '</div>';
+    this.html       = '<div class="search-result" data-name="' + this.name + '">' + $result.html() + '</div>';
     this.rating     = parseFloat($result.find('i.star-img').attr('title'));
     this.numReviews = parseInt($result.find('span.review-count').text(), 10);
     this.url        = 'http://www.yelp.com' + $result.find('a.biz-name').attr('href');
