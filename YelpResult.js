@@ -19,11 +19,26 @@ module.exports.prototype.fetch = function (cb) {
 
     $result = $('[data-key=1]');
 
-    $('.search-result').each(function (idx, el) {
-      console.log($(el).find('a.biz-name').text());
+    // Preprocess
+    $result.find('.review-snippet').remove();
+    // Fix urls
+    $result.find('a').each(function (idx, el) {
+      var $el = $(el);
+
+      $el.attr('href', 'http://www.yelp.com' + $el.attr('href'));
     });
 
-    this.html       = $result.html();
+    // console.log('Before: ', $result.find('.search-result-title').html());
+    // console.log('Replace with: ', $result.find('.search-result-title').find('a.biz-name').outerHTML());
+    // console.log('Or: ',  $result.find('a.biz-name').html())
+    // console.log('Or2: ',  $result.find('span.indexed-biz-name').html())
+
+    $result.find('.search-result-title').append($result.find('a.biz-name'));
+    $result.find('.search-result-title').find('span.indexed-biz-name').remove();
+
+    // console.log(this.name + ' - ' + $result.find('a.biz-name').text());
+
+    this.html       = '<div class="search-result">' + $result.html() + '</div>';
     this.rating     = parseFloat($result.find('i.star-img').attr('title'));
     this.numReviews = parseInt($result.find('span.review-count').text(), 10);
     this.url        = 'http://www.yelp.com' + $result.find('a.biz-name').attr('href');
@@ -35,7 +50,7 @@ module.exports.prototype.fetch = function (cb) {
 
 module.exports.prototype.getYelpResultHTML = function (restaurantName, cb) {
   var url = 'http://www.yelp.com/search?find_desc=' + encodeURI(restaurantName) + '&find_loc=New+York';
-  console.log(restaurantName + ': ' + url);
+  // console.log(restaurantName + ': ' + url);
   request(url, function (err, resp, body) {
     cb && cb(body);
   });
