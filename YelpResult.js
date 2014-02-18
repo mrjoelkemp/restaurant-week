@@ -48,7 +48,7 @@ module.exports.prototype.fetch = function (cb) {
 };
 
 module.exports.prototype.getYelpResultHTML = function (restaurantName, cb) {
-  var encodedName = encodeURI(restaurantName),
+  var encodedName = encodeURIComponent(restaurantName),
       url = 'http://www.yelp.com/search?find_desc=' + encodedName + '&find_loc=New+York';
 
   console.log(restaurantName + ': ' + url);
