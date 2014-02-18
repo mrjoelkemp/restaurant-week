@@ -32,7 +32,7 @@ module.exports.prototype.fetch = function (cb) {
       $el.attr('rel', 'nofollow');
     });
 
-    console.log(this.name + ' - ' + $result.find('a.biz-name').text());
+    console.log(this.name + ' | ' + $result.find('a.biz-name').text());
 
     $result.find('.search-result-title').append($result.find('a.biz-name'));
     $result.find('.search-result-title').find('span.indexed-biz-name').remove();
@@ -48,8 +48,11 @@ module.exports.prototype.fetch = function (cb) {
 };
 
 module.exports.prototype.getYelpResultHTML = function (restaurantName, cb) {
-  var url = 'http://www.yelp.com/search?find_desc=' + encodeURI(restaurantName) + '&find_loc=New+York';
-  // console.log(restaurantName + ': ' + url);
+  var encodedName = encodeURI(restaurantName),
+      url = 'http://www.yelp.com/search?find_desc=' + encodedName + '&find_loc=New+York';
+
+  console.log(restaurantName + ': ' + url);
+
   request(url, function (err, resp, body) {
     cb && cb(body);
   });
