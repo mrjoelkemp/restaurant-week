@@ -22,6 +22,7 @@ module.exports.prototype.fetch = function (cb) {
 
     // Preprocess
     $result.find('.review-snippet').remove();
+    $result.find('.business-snippet').remove();
     // Fix urls
     $result.find('a').each(function (idx, el) {
       var $el = $(el);
@@ -31,7 +32,7 @@ module.exports.prototype.fetch = function (cb) {
       $el.attr('rel', 'nofollow');
     });
 
-    // console.log(this.name + ' - ' + $result.find('a.biz-name').text());
+    console.log(this.name + ' - ' + $result.find('a.biz-name').text());
 
     $result.find('.search-result-title').append($result.find('a.biz-name'));
     $result.find('.search-result-title').find('span.indexed-biz-name').remove();

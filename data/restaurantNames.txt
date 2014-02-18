@@ -46,16 +46,16 @@ Brasserie
 Brasserie 8 1/2
 Brasserie Cognac
 Brasserie Ruhlmann
-Bread & Tulips
+Bread & Tulips - flatiron
 Butter Midtown
 Ça Va Brasserie by Todd English
 Café Boulud
 Café Centro
 Cafe D' Alsace
 Calle Ocho
-Capital Grille - NY – Chrysler Center
-Capital Grille - NY – Time Life Building
-Capital Grille - NY- Wall Street
+Capital Grille - Chrysler Center
+Capital Grille – Time Life Building
+Capital Grille - Wall Street
 Caravaggio
 Casa Mono
 Casa Nonna - Midtown
@@ -101,7 +101,7 @@ Fig & Olive - Meatpacking
 Fig & Olive - Uptown
 Fish Tag
 Fonda
-Frankie & Johnnie's Steakhouse
+Frankie & Johnnie's Steakhouse - midtown
 Fulton
 Gabriel's Bar & Restaurant
 The General
