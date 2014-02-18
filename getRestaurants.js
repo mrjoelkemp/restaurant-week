@@ -1,6 +1,8 @@
-var request = require('request'),
-    fs = require('fs'),
-    cheerio = require('cheerio');
+var request   = require('request'),
+    fs        = require('fs'),
+    cheerio   = require('cheerio'),
+    // Yelp api keys (hidden)
+    keys      = require('./keys');
 
 
 // Datafile locations
@@ -9,7 +11,9 @@ var root = './data/',
     restaurantNamesFile = root + 'restaurantNames.txt';
 
 
-yelpSearch('Dhaba');
+getYelpSearchResult('Dhaba', function (yelpObj) {
+  console.log(yelpObj)
+});
 
 ////////////
 // One-offs
@@ -36,15 +40,38 @@ function saveRestaurantNames() {
   fs.writeFile(restaurantNamesFile, names.join('\n'));
 }
 
-function yelpSearch(restaurantName, cb) {
-  var parameters = [];
+function getYelpSearchResult (restaurantName, cb) {
+  if (! restaurantName) return;
 
-  parameters.push(['oauth_consumer_key', auth.consumerKey]);
-  parameters.push(['oauth_consumer_secret', auth.consumerSecret]);
-  parameters.push(['oauth_token', auth.accessToken]);
-  parameters.push(['oauth_signature_method', 'HMAC-SHA1']);
+  var url = 'http://www.yelp.com/search?find_desc=' + encodeURI(restaurantName) + '&find_loc=New+York';
 
-  request('http://api.yelp.com/business_review_search?term=' + restaurantName + '&location=New+York', function (err, resp, body) {
-    console.log(body)
+  request(url, function (err, resp, body) {
+    // cb && cb(body);
+    var $ = cheerio.load(body),
+        yelpResult = new YelpResult({
+          name: restaurantName,
+          html: $('div.search-result').first().html()
+        });
+
+    cb && cb(yelpResult);
   });
+}
+
+function YelpResult (options) {
+  if (! options || ! options.html) {
+    this.html         = '';
+    this.rating       = 0;
+    this.numReviews   = 0;
+    this.name         = '';
+
+    return;
+  }
+
+  var $ = cheerio.load(options.html);
+
+  this.html       = options.html;
+  this.rating     = parseFloat($('i.star-img').attr('title'));
+  this.numReviews = parseInt($('span.review-count').text(), 10);
+  this.name       = options.restaurantName || $('a.biz-name').text();
+  this.url        = 'http://www.yelp.com' + $('a.biz-name').attr('href');
 }
